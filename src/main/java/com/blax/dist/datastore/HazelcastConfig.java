@@ -1,4 +1,4 @@
-package com.blax.clusterstore.playg;
+package com.blax.dist.datastore;
 
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;

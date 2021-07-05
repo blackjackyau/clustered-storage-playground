@@ -1,4 +1,4 @@
-package com.blax.clusterstore.playg;
+package com.blax.dist.datastore;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

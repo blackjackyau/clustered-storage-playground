@@ -1,4 +1,4 @@
-package com.blax.clusterstore.playg;
+package com.blax.dist.datastore;
 
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.map.IMap;

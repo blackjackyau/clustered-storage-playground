@@ -1,5 +1,5 @@
-## Clustered Storage Playground
-To understand the connectivity behaviour from different distributed/clustered storage
+## Distributed DataStore Playground
+To understand the connectivity behaviour from different distributed data storage
 
 ### Hazelcast
 - In this setup, we bring up hazelcast cluster (blax) using hazelcast docker and connect as Hz client from the application side 

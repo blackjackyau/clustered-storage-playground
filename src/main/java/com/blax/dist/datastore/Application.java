@@ -1,4 +1,4 @@
-package com.blax.clusterstore.playg;
+package com.blax.dist.datastore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
