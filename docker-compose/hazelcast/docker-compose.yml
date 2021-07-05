@@ -1,0 +1,43 @@
+version: "3"
+services:
+  hazelcast1:
+    image: hazelcast/hazelcast
+    environment:
+      - HZ_CLUSTERNAME=blax
+      - HZ_NETWORK_PUBLICADDRESS=${DOCKER_HOST_IP:-127.0.0.1}:5701
+      - HZ_NETWORK_PORT_AUTOINCREMENT=true
+      - HZ_NETWORK_PORT_PORTCOUNT=5
+      - HZ_NETWORK_PORT_PORT=5701
+    ports:
+      - 5701:5701
+
+  hazelcast2:
+    image: hazelcast/hazelcast
+    environment:
+      - HZ_CLUSTERNAME=blax
+      - HZ_NETWORK_PORT_AUTOINCREMENT=true
+      - HZ_NETWORK_PUBLICADDRESS=${DOCKER_HOST_IP:-127.0.0.1}:5702
+      - HZ_NETWORK_PORT_PORTCOUNT=5
+      - HZ_NETWORK_PORT_PORT=5701
+    ports:
+      - 5702:5701
+
+  hazelcast3:
+    image: hazelcast/hazelcast
+    environment:
+      - HZ_CLUSTERNAME=blax
+      - HZ_NETWORK_PORT_AUTOINCREMENT=true
+      - HZ_NETWORK_PUBLICADDRESS=${DOCKER_HOST_IP:-127.0.0.1}:5703
+      - HZ_NETWORK_PORT_PORTCOUNT=5
+      - HZ_NETWORK_PORT_PORT=5701
+    ports:
+      - 5703:5701
+
+  management-center:
+    image: hazelcast/management-center
+    environment:
+      - MC_ADMIN_USER=admin
+      - MC_ADMIN_PASSWORD=password138
+      - MC_INIT_CMD=./bin/mc-conf.sh cluster add -H=/data -ma hazelcast1:5701 -cn blax
+    ports:
+      - 8888:8080

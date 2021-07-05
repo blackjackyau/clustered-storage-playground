@@ -1,0 +1,14 @@
+server:
+  servlet:
+    context-path: /api
+  port: 8080
+
+logging:
+  level:
+    com.hazelcast: TRACE
+
+com:
+  blax:
+    hz:
+      bootstrap-address: docker.vm:5701
+      cluster-name: blax
