@@ -6,9 +6,20 @@ server:
 logging:
   level:
     com.hazelcast: TRACE
+    org.redisson: DEBUG
 
 com:
   blax:
     hz:
+      enabled: true
       bootstrap-address: docker.vm:5701
       cluster-name: blax
+
+# https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter
+spring:
+  redis:
+    password: blax
+    timeout: 5000
+    cluster:
+      nodes:
+        - docker.vm:6379
