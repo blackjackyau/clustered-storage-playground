@@ -16,7 +16,7 @@ public class RedisController {
 
     @RequestMapping(value = "map/{key}", method = RequestMethod.GET)
     Map getMap(@PathVariable String key) {
-        return redisClient.getMap("key");
+        return redisClient.getMap(key);
     }
 
     @RequestMapping(value = "map/{key}", method = RequestMethod.POST)

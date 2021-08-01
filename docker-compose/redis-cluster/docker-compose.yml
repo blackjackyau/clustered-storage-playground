@@ -52,7 +52,6 @@ services:
     image: docker.io/bitnami/redis-cluster:6.2
     volumes:
       - redis-cluster_data-4:/bitnami/redis/data
-#      - ./conf/redis-04.conf:/opt/bitnami/redis/mounted-etc/redis.conf
     environment:
       - REDIS_PASSWORD=blax
       - REDIS_CLUSTER_DYNAMIC_IPS=no
@@ -80,6 +79,13 @@ services:
       - REDIS_CLUSTER_REPLICAS=1
       - REDIS_NODES=${DOCKER_HOST_IP}:6379 ${DOCKER_HOST_IP}:6380 ${DOCKER_HOST_IP}:6381 ${DOCKER_HOST_IP}:6382 ${DOCKER_HOST_IP}:6383 ${DOCKER_HOST_IP}:6384
       - REDIS_CLUSTER_CREATOR=yes
+    network_mode: "host"
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      - REDIS_HOSTS=node-1:${DOCKER_HOST_IP}:6379:0:blax,node-2:${DOCKER_HOST_IP}:6380:0:blax,node-3:${DOCKER_HOST_IP}:6381:0:blax,node-4:${DOCKER_HOST_IP}:6382:0:blax,node-5:${DOCKER_HOST_IP}:6383:0:blax,node-6:${DOCKER_HOST_IP}:6384:0:blax
     network_mode: "host"
 
 volumes:
