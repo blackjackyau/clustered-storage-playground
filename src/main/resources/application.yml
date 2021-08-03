@@ -11,9 +11,11 @@ logging:
 com:
   blax:
     hz:
-      enabled: true
+      enable: true
       bootstrap-address: docker.vm:5701
       cluster-name: blax
+    redis:
+      enable: true
 
 # https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter
 spring:

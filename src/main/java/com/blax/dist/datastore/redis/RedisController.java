@@ -3,12 +3,16 @@ package com.blax.dist.datastore.redis;
 import lombok.AllArgsConstructor;
 import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @RestController
 @AllArgsConstructor
+@ConditionalOnProperty(prefix = "com.blax.redis", name = "enable", havingValue = "true")
+@DependsOn("redisTemplate")
 @RequestMapping(value = "redis")
 public class RedisController {
 
