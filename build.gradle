@@ -28,6 +28,14 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+bootRun {
+// https://docs.hazelcast.com/imdg/4.2/management/diagnostics.html
+//	systemProperty "hazelcast.diagnostics.enabled", "true"
+//	systemProperty "hazelcast.diagnostics.metric.level", "info"
+//	systemProperty "hazelcast.diagnostics.storeLatency.period.seconds", "60"
+//	systemProperty "hazelcast.diagnostics.directory", "diagnostic"
+}
+
 test {
 	useJUnitPlatform()
 }

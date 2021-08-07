@@ -15,7 +15,7 @@ To understand the connectivity behaviour from different distributed data storage
 - [Hz Discovery](https://hazelcast.com/blog/hazelcast-discovery-auto-detection/)
 
 ### Redis
-- Redis in cluster mode is relatively weird as a single redis node can be either in master or slave mode
+- Redis in cluster mode is relatively inefficient as a single redis node can be either in master or slave mode
   - master (write) and slave (read) design similar like RDBMS replication design
 - This playground makes use of redis image provisioned by `bitnami` as the naked redis image is not cloud friendly
 - Even with `bitnami` there's limitation on the deployment setup as well. E.g.
